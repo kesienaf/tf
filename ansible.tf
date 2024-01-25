@@ -6,7 +6,7 @@ resource "aws_instance" "ans_master" {
   key_name = "kesienaf"
   vpc_security_group_ids = [aws_security_group.allow_ecomm.id]
   user_data = file("install_ansible.sh")
-  private_ip = "10.0.1.10"
+  private_ip = "10.0.1.12"
 
 
   tags = {
@@ -21,8 +21,7 @@ resource "aws_instance" "ans_n1" {
   subnet_id = aws_subnet.ecomm-pub-sn.id
   key_name = "kesienaf"
   vpc_security_group_ids = [aws_security_group.allow_ecomm.id]
-  user_data = file("install_ansible.sh")
-  private_ip = "10.0.1.11"
+  private_ip = "10.0.1.13"
 
 
   tags = {
