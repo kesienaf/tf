@@ -1,0 +1,32 @@
+---
+- name: Install HTTP server & Deploy Ecomm App
+  hosts: n1
+  become: yes
+
+  tasks:
+  - name: Install HTTP
+    yum:
+      name: httpd
+      state: present
+   
+  - name: Start HTTPD
+    service:
+      name: httpd
+      state: started
+
+  - name: Enable HTTPD
+    service:
+      name: httpd
+      enabled: yes
+
+  - name: Install Git
+    yum:
+      name: git
+      state: present
+   
+  - name: Host Code
+    git:
+      repo: https://github.com/CeeyIT-Solutions/ecomm-3.git
+      dest: /var/www/html
+      force: yes
+...
